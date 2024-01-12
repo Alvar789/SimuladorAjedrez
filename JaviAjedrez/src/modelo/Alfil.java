@@ -9,7 +9,7 @@ public class Alfil extends Pieza{
 	}
 
 	@Override
-	public Pieza mover(char fila, int columna) {
+	public Pieza mover(char fila, int columna, boolean capturar) {
 		//TODO Gestionar el movimiento
 		Traductor traductor = new Traductor();
 		int filaInt = traductor.charToInt(fila);

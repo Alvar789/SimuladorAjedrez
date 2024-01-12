@@ -21,7 +21,7 @@ public abstract class Pieza {
 		this.fila = fila;
 		this.pieza = pieza;
 	}
-	public abstract Pieza mover(char fila, int columna);
+	public abstract Pieza mover(char fila, int columna, boolean capturar);
 	
 	public int getFila() {
 		return fila;

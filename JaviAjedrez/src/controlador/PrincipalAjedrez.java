@@ -18,15 +18,11 @@ public class PrincipalAjedrez {
 		Consola c = new Consola();
 		c.mostrarTablero(tablero.getTablero());
 		scanner.next();
-		c.mostrarTablero(gm.moverPiezaProvisional('h', 6, 'f', 1));
+		c.mostrarTablero(gm.moverPieza("", 'e', 2));
+		scanner.next();
+		c.mostrarTablero(gm.moverPieza("", 'd', 3));
+		scanner.next();
+		c.mostrarTablero(gm.moverPieza("", 'd', 3));
 		
-		
-		
-//		ArrayList<Pieza> arrLPiezas = new ArrayList<>();
-//		arrLPiezas.add(new Peon("E"));
-//		arrLPiezas.add(new Alfil("B"));
-//		for (Pieza pieza : arrLPiezas) {
-//			pieza.mover();
-//		}
 	}
 }
