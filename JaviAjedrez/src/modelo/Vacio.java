@@ -7,7 +7,7 @@ public class Vacio extends Pieza{
 		super(pieza, fila, columna);
 	}
 	@Override
-	public int[] mover(char fila, int columna) {
+	public Pieza mover(char fila, int columna) {
 		System.out.println("Aqui, aqui, aqui, aqui no hay quien viva");
 		return null;
 	}

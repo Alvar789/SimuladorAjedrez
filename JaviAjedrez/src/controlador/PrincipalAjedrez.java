@@ -18,7 +18,9 @@ public class PrincipalAjedrez {
 		Consola c = new Consola();
 		c.mostrarTablero(tablero.getTablero());
 		scanner.next();
-		c.mostrarTablero(gm.moverPiezaProvisional('g', 1));
+		c.mostrarTablero(gm.moverPiezaProvisional('h', 6, 'f', 1));
+		
+		
 		
 //		ArrayList<Pieza> arrLPiezas = new ArrayList<>();
 //		arrLPiezas.add(new Peon("E"));

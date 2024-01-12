@@ -2,20 +2,25 @@ package modelo;
 
 import controlador.Traductor;
 
-public class Torre extends Pieza{
-	public Torre(String pieza,  boolean isBlanca, int fila, int columna) {
+public class Torre extends Pieza {
+	public Torre(String pieza, boolean isBlanca, int fila, int columna) {
 		super(pieza, isBlanca, fila, columna);
 	}
+
 	@Override
-	public int[] mover(char fila, int columna) {
-		//TODO Gestionar el movimiento
+	public Pieza mover(char fila, int columna) {
+		// TODO Gestionar el movimiento
 		Traductor traductor = new Traductor();
-		int[] coordenadas = new int[2];
+		int filaInt = traductor.charToInt(fila);
+		boolean mover = super.getFila() == filaInt || super.getColumna() == columna;
 		System.out.println("Estoy moviendo una torre");
-		super.setFila(traductor.charToInt(fila));
-		super.setColumna(columna);
-		coordenadas[0] = super.getFila();
-		coordenadas[1] = super.getColumna();
-		return coordenadas;
+		if(mover) {
+			System.out.println("Se puede mover");
+			super.setFila(filaInt);
+			super.setColumna(columna);
+			
+			return this;
+		}
+		return null;
 	}
 }

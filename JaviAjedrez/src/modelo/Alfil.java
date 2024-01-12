@@ -9,16 +9,21 @@ public class Alfil extends Pieza{
 	}
 
 	@Override
-	public int[] mover(char fila, int columna) {
+	public Pieza mover(char fila, int columna) {
 		//TODO Gestionar el movimiento
 		Traductor traductor = new Traductor();
-		int[] coordenadas = new int[2];
+		int filaInt = traductor.charToInt(fila);
 		System.out.println("Estoy moviendo un alfil");
-		super.setFila(traductor.charToInt(fila));
-		super.setColumna(columna);
-		coordenadas[0] = super.getFila();
-		coordenadas[1] = super.getColumna();
-		return coordenadas;
+		
+		boolean mover = filaInt + columna == super.getFila() + super.getColumna() || filaInt - columna == super.getFila() - super.getColumna();
+		if(mover) {
+			System.out.println("Se puede mover");
+			super.setFila(filaInt);
+			super.setColumna(columna);
+			
+			return this;
+		}
+		return null;
 	}
 
 }

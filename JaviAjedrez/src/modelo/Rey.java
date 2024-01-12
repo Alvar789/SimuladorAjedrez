@@ -7,15 +7,22 @@ public class Rey extends Pieza{
 		super(pieza, isBlanca, fila, columna);
 	}
 	@Override
-	public int[] mover(char fila, int columna) {
+	public Pieza mover(char fila, int columna) {
 		//TODO Gestionar el movimiento
 		Traductor traductor = new Traductor();
-		int[] coordenadas = new int[2];
+		int filaInt = traductor.charToInt(fila);
 		System.out.println("Estoy moviendo un rey");
-		super.setFila(traductor.charToInt(fila));
-		super.setColumna(columna);
-		coordenadas[0] = super.getFila();
-		coordenadas[1] = super.getColumna();
-		return coordenadas;
+		int v1 = filaInt - super.getFila(), v2 = columna - super.getColumna();
+		boolean moverDiagonal = filaInt + columna == super.getFila() + super.getColumna() || filaInt - columna == super.getFila() - super.getColumna();
+		boolean moverRecto = super.getFila() == filaInt || super.getColumna() == columna;
+		boolean distancia1 = Math.abs(v1) == 1 && Math.abs(v2) == 1;
+		if((moverDiagonal || moverRecto) && distancia1) {
+			System.out.println("Se puede mover");
+			super.setFila(filaInt);
+			super.setColumna(columna);
+			
+			return this;
+		}
+		return null;
 	}
 }
