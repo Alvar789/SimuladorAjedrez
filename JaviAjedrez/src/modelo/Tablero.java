@@ -88,4 +88,20 @@ public class Tablero {
 			break;
 		}
 	}
+	public boolean retaguardiaOcupada(boolean turno) {
+		boolean ocupada = false;
+		int i = 0;
+		if(turno) {
+			while(i < tablero.length && !ocupada) {
+				if(tablero[7][i].getPieza().equals("N") || tablero[7][i].getPieza().equals("B") || tablero[7][i].getPieza().equals("Q")) {
+					ocupada = true;
+				}
+			}
+		}else {
+			if(tablero[7][i].getPieza().equals("n") || tablero[7][i].getPieza().equals("b") || tablero[7][i].getPieza().equals("q")) {
+				ocupada = true;
+			}
+		}
+		return ocupada;
+	}
 }

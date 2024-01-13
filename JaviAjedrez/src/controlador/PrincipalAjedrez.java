@@ -23,6 +23,17 @@ public class PrincipalAjedrez {
 		c.mostrarTablero(gm.moverPieza("", 'd', 3));
 		scanner.next();
 		c.mostrarTablero(gm.moverPieza("", 'd', 3));
+		scanner.next();
+		tablero.retaguardiaOcupada(false);
+		c.mostrarTablero(gm.moverPieza("O-O", 'o', -1));
+		scanner.next();
+		c.mostrarTablero(gm.moverPieza("O-O-O", 'o', -1));
+		scanner.next();
+		c.mostrarTablero(gm.moverPieza("", 'c', 5));
+		scanner.next();
+		c.mostrarTablero(gm.moverPieza("", 'e', 3));
+		scanner.next();
+		c.mostrarTablero(gm.moverPieza("", 'd', 6));
 		
 	}
 }
