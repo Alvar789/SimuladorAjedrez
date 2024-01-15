@@ -12,9 +12,9 @@ public class PrincipalAjedrez {
 		Tablero tablero = new Tablero();
 		GestorMoviminetos gm = new GestorMoviminetos(tablero);
 		Consola c = new Consola();
-		String[] dirPartidas = new File("./partidas/").list();
+		String[] dirPartidas = new File("partidas").list();
 		for (int i = 0; i < dirPartidas.length; i++) {
-			if(new File(dirPartidas[i]).isFile()) {
+			if(new File("partidas/" + dirPartidas[i]).isFile()) {
 				System.out.println(dirPartidas[i]);
 			}
 		}
