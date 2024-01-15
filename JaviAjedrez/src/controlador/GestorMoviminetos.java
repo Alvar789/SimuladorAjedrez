@@ -1,7 +1,6 @@
 package controlador;
 
 import modelo.Pieza;
-import modelo.Rey;
 import modelo.Tablero;
 import modelo.Vacio;
 import vista.Colores;
@@ -57,15 +56,14 @@ public class GestorMoviminetos {
 		seMueve = false;
 		boolean puedeCapturar;
 		String piezaMover = elegirPieza(pieza);
-		if(tableroObj.retaguardiaOcupada(turno)) {
-			System.out.println("No se puede hacer el enroque");
-		}
+//		if(tableroObj.retaguardiaOcupada(turno)) {
+//			System.out.println("No se puede hacer el enroque");
+//		}
 		if((pieza.equals("O-O-O") && turno) || (pieza.equals("O-O") && !turno)) {
 			saltarTorre = false;
 		}else if ((pieza.equals("O-O-O") && !turno) || (pieza.equals("O-O") && turno)){
 			saltarTorre = true;
 		}
-		// Habria que hacer esto con un while en vez de un for.
 		for (char f = 'a'; f < 'i'; f++) {
 			for (int columna = 0; columna < tablero.length; columna++) {
 				fila = tr.charToInt(f);
@@ -113,11 +111,12 @@ public class GestorMoviminetos {
 							tablero[fila][columna] = new Vacio("_", fila, columna);
 							tablero[piezaAMover.getFila()][piezaAMover.getColumna()] = piezaAMover;
 							seMueve = true;
+							turno = !turno;
+							System.out.println("Final mover pieza " + turno);
 							return tablero;
 						}
 					}
 				}
-
 			}
 		}
 		turno = !turno;

@@ -1,12 +1,8 @@
 package controlador;
 
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.io.File;
 import java.util.Scanner;
 
-import modelo.Alfil;
-import modelo.Peon;
-import modelo.Pieza;
 import modelo.Tablero;
 import vista.Consola;
 
@@ -16,23 +12,24 @@ public class PrincipalAjedrez {
 		Tablero tablero = new Tablero();
 		GestorMoviminetos gm = new GestorMoviminetos(tablero);
 		Consola c = new Consola();
-		c.mostrarTablero(tablero.getTablero());
+		String[] dirPartidas = new File("./partidas/").list();
+		for (int i = 0; i < dirPartidas.length; i++) {
+			if(new File(dirPartidas[i]).isFile()) {
+				System.out.println(dirPartidas[i]);
+			}
+		}
+		System.out.println("Introduce el numero de la partida");
+		c.mostrarTablero(tablero.getTablero());	
 		scanner.next();
-		c.mostrarTablero(gm.moverPieza("", 'e', 2));
+		c.mostrarTablero(gm.moverPieza("N", 'f', 3));
 		scanner.next();
-		c.mostrarTablero(gm.moverPieza("", 'd', 3));
+		c.mostrarTablero(gm.moverPieza("", 'd', 1));
 		scanner.next();
-		c.mostrarTablero(gm.moverPieza("", 'd', 3));
+		c.mostrarTablero(gm.moverPieza("N", 'f', 8));
 		scanner.next();
-		c.mostrarTablero(gm.moverPieza("O-O", 'o', -1));
+		c.mostrarTablero(gm.moverPieza("", 'e', 1));
 		scanner.next();
-		c.mostrarTablero(gm.moverPieza("O-O-O", 'o', -1));
-		scanner.next();
-		c.mostrarTablero(gm.moverPieza("", 'c', 5));
-		scanner.next();
-		c.mostrarTablero(gm.moverPieza("", 'e', 3));
-		scanner.next();
-		c.mostrarTablero(gm.moverPieza("", 'd', 6));
+		c.mostrarTablero(gm.moverPieza("O-O-O", 'i', -1));
 		
 	}
 }

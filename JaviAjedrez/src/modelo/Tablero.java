@@ -89,17 +89,19 @@ public class Tablero {
 		}
 	}
 	public boolean retaguardiaOcupada(boolean turno) {
-		//Se podria pasar tambien el tipo de enroque para seber si hay que buscar la reina
+		//Se podria pasar tambien la posicion del rey para que solo recorra hasta ahi.
 		boolean ocupada = false;
 		int i = 0;
 		if(turno) {
 			while(i < tablero.length && !ocupada) {
 				if(tablero[7][i].getPieza().equals("N") || tablero[7][i].getPieza().equals("B") || tablero[7][i].getPieza().equals("Q")) {
+					i++;
 					ocupada = true;
 				}
 			}
 		}else {
-			if(tablero[7][i].getPieza().equals("n") || tablero[7][i].getPieza().equals("b") || tablero[7][i].getPieza().equals("q")) {
+			if(tablero[0][i].getPieza().equals("n") || tablero[0][i].getPieza().equals("b") || tablero[0][i].getPieza().equals("q")) {
+				i++;
 				ocupada = true;
 			}
 		}
