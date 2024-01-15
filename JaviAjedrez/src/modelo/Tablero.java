@@ -89,6 +89,7 @@ public class Tablero {
 		}
 	}
 	public boolean retaguardiaOcupada(boolean turno) {
+		//Se podria pasar tambien el tipo de enroque para seber si hay que buscar la reina
 		boolean ocupada = false;
 		int i = 0;
 		if(turno) {

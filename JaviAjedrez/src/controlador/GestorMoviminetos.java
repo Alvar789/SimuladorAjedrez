@@ -2,15 +2,18 @@ package controlador;
 
 import modelo.Pieza;
 import modelo.Rey;
+import modelo.Tablero;
 import modelo.Vacio;
 import vista.Colores;
 
 public class GestorMoviminetos {
 	private boolean turno, seMueve, saltarTorre = false;
 	private Pieza[][] tablero;
+	private Tablero tableroObj;
 
-	public GestorMoviminetos(Pieza[][] tablero) {
-		this.tablero = tablero;
+	public GestorMoviminetos(Tablero tableroObj) {
+		this.tableroObj = tableroObj;
+		this.tablero = tableroObj.getTablero();
 		this.turno = true;
 	}
 
@@ -54,6 +57,9 @@ public class GestorMoviminetos {
 		seMueve = false;
 		boolean puedeCapturar;
 		String piezaMover = elegirPieza(pieza);
+		if(tableroObj.retaguardiaOcupada(turno)) {
+			System.out.println("No se puede hacer el enroque");
+		}
 		if((pieza.equals("O-O-O") && turno) || (pieza.equals("O-O") && !turno)) {
 			saltarTorre = false;
 		}else if ((pieza.equals("O-O-O") && !turno) || (pieza.equals("O-O") && turno)){
@@ -111,25 +117,15 @@ public class GestorMoviminetos {
 						}
 					}
 				}
-//				if(tablero[fila][columna].getPieza().equals(piezaMover)) {
-//					filaCapturar = tr.charToInt(filaFinal);
-//					puedeCapturar = !tablero[filaCapturar][columnaFinal-1].getPieza().contains("_");
-//					piezaAMover = tablero[fila][columna].mover(filaFinal, columnaFinal-1, puedeCapturar);
-//					if(piezaAMover != null) {
-//						tablero[fila][columna] = new Vacio("_", fila, columna);
-//						tablero[piezaAMover.getFila()][piezaAMover.getColumna()] = piezaAMover;
-//						seMueve = true;
-//						return tablero;
-//					}
-//				}
+
 			}
 		}
+		turno = !turno;
+		System.out.println("Final mover pieza " + turno);
 		if (!seMueve) {
 			System.out.println(Colores.RED + "Jugada no valida" + Colores.RESET);
 		}
 		seMueve = false;
-		turno = !turno;
-		System.out.println("Final mover pieza " + turno);
 		return tablero;
 	}
 

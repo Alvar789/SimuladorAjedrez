@@ -14,7 +14,7 @@ public class PrincipalAjedrez {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		Tablero tablero = new Tablero();
-		GestorMoviminetos gm = new GestorMoviminetos(tablero.getTablero());
+		GestorMoviminetos gm = new GestorMoviminetos(tablero);
 		Consola c = new Consola();
 		c.mostrarTablero(tablero.getTablero());
 		scanner.next();
@@ -24,7 +24,6 @@ public class PrincipalAjedrez {
 		scanner.next();
 		c.mostrarTablero(gm.moverPieza("", 'd', 3));
 		scanner.next();
-		tablero.retaguardiaOcupada(false);
 		c.mostrarTablero(gm.moverPieza("O-O", 'o', -1));
 		scanner.next();
 		c.mostrarTablero(gm.moverPieza("O-O-O", 'o', -1));
