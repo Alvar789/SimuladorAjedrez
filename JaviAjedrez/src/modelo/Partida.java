@@ -3,6 +3,7 @@ package modelo;
 import java.util.ArrayList;
 
 public class Partida {
+	private String jugadores;
 	private ArrayList<String> movimientosBlancas;
 	private ArrayList<String> movimientosNegras;
 	
@@ -11,6 +12,14 @@ public class Partida {
 	public Partida() {
 		movimientosBlancas = new ArrayList<>();
 		movimientosNegras = new ArrayList<>();
+	}
+	
+	public String getJugadores() {
+		return jugadores;
+	}
+
+	public void setJugadores(String jugadores) {
+		this.jugadores = jugadores;
 	}
 	public ArrayList<String> getMovimientosBlancas() {
 		return movimientosBlancas;

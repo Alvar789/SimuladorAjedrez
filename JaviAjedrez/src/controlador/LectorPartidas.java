@@ -5,14 +5,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 import modelo.Partida;
 
 public class LectorPartidas {
-	public HashMap<String, Partida> lectorPartidas(int numPartida){
-		HashMap< String, Partida> mapaPartidas = new HashMap<>();
+	public Partida lectorPartidas(int numPartida){
+		
 		FileReader fr = null;
 		BufferedReader bf = null;
 		Partida partida = new Partida();
@@ -24,20 +22,18 @@ public class LectorPartidas {
 			bf = new BufferedReader(fr);
 			
 			jugadores = bf.readLine();
+			partida.setJugadores(jugadores);
 			while((linea = bf.readLine()) != null) {
 				linea = linea.substring(linea.indexOf(" "));
 				jugadas = linea.split(" ");
 				partida.getMovimientosBlancas().add(jugadas[0]);
 				partida.getMovimientosNegras().add(jugadas[1]);
 			}
-			mapaPartidas.put(jugadores, partida);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return mapaPartidas;
+		return partida;
 	}
 }
