@@ -15,7 +15,6 @@ public class LectorPartidas {
 		BufferedReader bf = null;
 		Partida partida = new Partida();
 		String linea, jugadores;
-		String[] jugadas;
 		try {
 			File archivoPartida = new File("partidas/Partida" + numPartida + ".txt");
 			fr = new FileReader(archivoPartida);
@@ -25,9 +24,7 @@ public class LectorPartidas {
 			partida.setJugadores(jugadores);
 			while((linea = bf.readLine()) != null) {
 				linea = linea.substring(linea.indexOf(" "));
-				jugadas = linea.split(" ");
-				partida.getMovimientosBlancas().add(jugadas[0]);
-				partida.getMovimientosNegras().add(jugadas[1]);
+				partida.getMovimientos();
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

@@ -31,7 +31,4 @@ public class Consola {
 		return scanner.nextInt();
 	}
 	
-	public void muestraPartida(Partida mapaPartida) {
-		
-	}
 }

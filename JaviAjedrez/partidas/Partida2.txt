@@ -12,4 +12,3 @@ Boeges - Roche
 11. Ne5 Bh7
 12. Nxf7 Kxf7
 13. Qxe6+
-
